@@ -12,6 +12,18 @@
 #include "../utils/colors.h"
 
 /**
+ * Prints the welcome message.
+ * 
+ * @param pos - position of the cursor
+ * @param vidptr - pointer to the video memory
+*/
+void print_banner(unsigned int *pos, char *vidptr) {
+    _printf(pos, vidptr, FG_LIGHT_BLUE | BG_BLACK, "Welcome to CosmOS!\n");
+    _printf(pos, vidptr, FG_WHITE | BG_BLACK, 
+            "Type 'help' to see the available commands.\n\n");
+}
+
+/**
  * Cleans the screen by filling it with spaces
  * and setting the background color.
  * 
@@ -26,6 +38,8 @@ void clean_screen(char *vidptr, unsigned char bg_color) {
         vidptr[j+1] = bg_color;
         j = j + 2;
     }
+
+    print_banner(&j, vidptr);
 }
 
 /**
@@ -50,5 +64,6 @@ void delete_char(unsigned int *pos, char *vidptr) {
     vidptr[*pos] = ' ';
     vidptr[*pos + 1] = BG_BLACK;
 }
+
 
 #endif // CLEAR_SCREEN_H

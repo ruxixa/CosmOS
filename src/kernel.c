@@ -29,6 +29,7 @@ void main() {
     char *vidptr = (char*)0xb8000;
 
     clean_screen(vidptr, BG_BLACK);
+    print_banner(&pos, vidptr);
 
     // infinite loop to receive commands
     while (true) {
