@@ -1,3 +1,3 @@
 # CosmOS
 
-CosmOS is a simple kernel written in C
+CosmOS is a simple 32bit operating system written in C

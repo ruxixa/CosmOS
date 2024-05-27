@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 #define KEYBOARD_PORT 0x60
-#define KEYBOARD_STATUS_PORT 0x64
+#define KEYBOARD_STATUS_PORT 0x64   // unused yet
 
 /**
  * Reads a byte from a given port.

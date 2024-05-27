@@ -11,7 +11,22 @@
 #include "../screen/in_out.h"
 #include "../screen/screen.h"
 
-
+/**
+ * Handles a command entered by the user.
+ * 
+ * Currently, the available commands are:
+ * - help - show a list of available commands
+ * - clear - clear the screen
+ * - echo - print a message
+ * 
+ * More commands will be added in the future.
+ * 
+ * @param command - the command to handle
+ * @param pos - the position of the cursor
+ * @param vidptr - pointer to the video memory
+ *
+ * @return void 
+*/
 void handle_command(const char* command, unsigned int *pos, char *vidptr) {
     if (_strcmp(command, "help") == 0) {
         _printf(pos, vidptr, FG_LIGHT_BLUE | BG_BLACK, "\nAvailable commands:");
