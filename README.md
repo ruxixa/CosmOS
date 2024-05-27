@@ -18,6 +18,6 @@ CosmoOS is a simple 32bit operating system written in C
 - Basic Memory Management
 - File System
 - Multitasking
-- Drivers
+- Drivers (keyboard, mouse)
 
 [🔖 Changelog](CHANGELOG.md)
