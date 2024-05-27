@@ -5,9 +5,14 @@
  * 
  * Author: ruxixa
 */
-
 #ifndef KEYS_H
 #define KEYS_H
+
+// special keys
+#define KEYBOARD_ENTER 28
+#define KEYBOARD_ESC 1
+#define KEYBOARD_BACKSPACE 14
+#define KEYBOARD_TAB 15
 
 /**
  * Converts a key code to an ASCII character.
@@ -26,7 +31,8 @@ int key_to_ascii(int key) {
     // check if the key is within the range of the keyboard layout
     if (key >= 0 && key < sizeof(keyboardLayout) / sizeof(keyboardLayout[0])) {
         return keyboardLayout[key];
-    } else {
+    } 
+    else {
         return -1;
     }
 }

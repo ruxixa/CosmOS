@@ -54,33 +54,41 @@ void _putchar(char c, unsigned int *pos, char *vidptr, unsigned char color) {
 void _gets(char *input, unsigned int *pos, char *vidptr, unsigned char color) {
     char prev_key = 0;
     int i = 0;
-    while (1) {
+
+    // clear the input buffer to avoid weird characters in the input
+    delete_char(pos, vidptr);
+    _putchar(' ', pos, vidptr, color);
+
+    while (true) {
         char c = inb(KEYBOARD_PORT);
         
-        if (c < 0) continue;                // negative value means no key was pressed
-        else if (c == 28) break;            // enter key; exit the loop
-        else if (c == prev_key) continue;   // ignore key repeats
-        else if (c == 14) {                 // backspace key; handle input deletion
+        if (c < 0) continue;                            // negative value means no key was pressed
+        else if (c == KEYBOARD_ENTER && i > 1) break;   // enter key; exit the loop if the input is not empty
+        else if (c == prev_key) continue;               // ignore key repeats
+        else if (c == KEYBOARD_BACKSPACE) {             // backspace key; handle input deletion
             if (i > 0) {
                 delete_char(pos, vidptr);
                 i--;
             }
             continue;
         }
-        
+
         prev_key = c;
         char key = key_to_ascii(c);
-        
-        _putchar(key, pos, vidptr, color);
-        _printf(pos, vidptr, color, "-> %c", key);
-        
-        input[i] = key;
-        i++;
-        
+
+        // ignore non-printable characters
+        if (key != 10 && key != 13 && key != 0) {
+            _putchar(key, pos, vidptr, color);
+            input[i] = key;
+            i++;
+        }
+
         // limit the input to 100 characters 
         // to prevent buffer overflow 
-        if (i >= 99) break;                 
+        if (i >= 10) break;                 
     }
+    
+    // add null terminator to the end of the string
     input[i] = '\0';
 }
 

@@ -1,6 +1,15 @@
+#
+# Makefile
+# 
+# This file is used to help with compilation
+# of the kernel source files
+#
+# Author: ruxixa
+#
+
 # Source files
 LINK    = linker/link.ld
-ASM_SRC = src/kernel.asm
+ASM_SRC = asm/kernel.asm
 C_SRC   = src/kernel.c 
 
 # Object files

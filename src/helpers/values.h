@@ -2,7 +2,7 @@
  * helpers/values.h
  * 
  * This file contains helper functions for
- * converting values
+ * converting values between different types.
  * 
  * Author: ruxixa
 */

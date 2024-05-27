@@ -1,3 +1,11 @@
+/**
+ * utils/colors.h
+ * 
+ * This file contains macros and functions
+ * for port operations.
+ * 
+ * Author: ruxixa
+*/
 #ifndef PORTS_H
 #define PORTS_H
 
@@ -9,8 +17,14 @@
 /**
  * Reads a byte from a given port.
  * 
- * @param port - port to read from
+ * We are currently using this function to read
+ * from the keyboard port.
  * 
+ * This is a very primitive way of doing that
+ * and I should write own keyboard driver, what
+ * I will probably do in the future.
+ * 
+ * @param port - port to read from
  * @return char
 */
 char inb(uint16_t port) {

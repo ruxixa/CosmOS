@@ -1,7 +1,16 @@
+/**
+ * utils/commands.h
+ * 
+ * This file contains functions to handle
+ * commands entered by the user.
+ * 
+ * Author: ruxixa
+*/
 #include "colors.h"
 
 #include "../screen/in_out.h"
 #include "../screen/screen.h"
+
 
 void handle_command(const char* command, unsigned int *pos, char *vidptr) {
     if (_strcmp(command, "help") == 0) {
@@ -12,5 +21,16 @@ void handle_command(const char* command, unsigned int *pos, char *vidptr) {
     } 
     else if (_strcmp(command, "clear") == 0) {
         clean_screen(vidptr, BG_BLACK);
+        *pos = 0; 
     } 
+    else if (_strcmp(command, "echo") == 0) {
+        char message[MAX_BUFFER_SIZE];
+
+        _printf(pos, vidptr, FG_LIGHT_BLUE | BG_BLACK, "\nEnter a message: ");
+        _scanf(pos, vidptr, FG_WHITE | BG_BLACK, "%s", message);
+        _printf(pos, vidptr, FG_WHITE | BG_BLACK, "\n%s\n", message);
+    }
+    else {
+        _printf(pos, vidptr, FG_LIGHT_RED | BG_BLACK, "\nCommand not found: %s\n", command);
+    }
 }
