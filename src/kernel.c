@@ -35,7 +35,7 @@ void main() {
     while (true) {
         char command[MAX_BUFFER_SIZE];
 
-        _printf(&pos, vidptr, FG_CYAN | BG_BLACK, "CosmOS@usr:~$ ");
+        _printf(&pos, vidptr, FG_CYAN | BG_BLACK, "CosmOS@user:~$ ");
         _scanf(&pos, vidptr, FG_WHITE | BG_BLACK, "%s", command);
     
         handle_command(command, &pos, vidptr);
